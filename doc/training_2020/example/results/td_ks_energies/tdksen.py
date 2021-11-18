@@ -53,7 +53,7 @@ def parallel_wht(runDirs, whichAtoms, nproc=None):
     '''
     import multiprocessing
     nproc = multiprocessing.cpu_count() if nproc is None else nproc
-    pool = multiprocessing.Pool(processes=nproc)
+    pool = multiprocessing.Pool(processes= nproc)
 
     results = []
     for rd in runDirs:

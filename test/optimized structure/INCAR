@@ -1,0 +1,31 @@
+General
+  SYSTEM  = Your Job Name
+  PREC    = Med
+  ISPIN   = 1
+  ISTART  = 0
+  ICHARG  = 1
+
+Electronic relaxation
+  NPAR    = 4
+  ISMEAR  = 0
+  SIGMA   = 0.1
+  ALGO    = Fast
+  NELMIN  = 4
+  NELM    = 120
+  EDIFF   = 1E-6
+
+Molecular Dynamics
+  ISYM    = 0     # turn off symmetry for MD
+  IBRION  = 0     # turn on MD
+  NSW     = 500   # No. of ionic steps
+  POTIM   = 1     # time step 1.0 fs
+  SMASS   = -1    # velocity rescaling
+  NBLOCK  = 4     # velocity rescaled
+                  # every NBLOCK step
+  TEBEG   = 300   # start temperature
+  TEEND   = 300   # end temperature
+
+Writing Flag
+  NWRITE  = 1     # make OUTCAR small
+  LWAVE   = .FALSE.
+  LCHARG  = .FALSE.

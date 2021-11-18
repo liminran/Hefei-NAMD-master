@@ -26,8 +26,8 @@ Molecular Dynamics
    IBRION = 0
       NSW = 5000
     POTIM = 1
-    SMASS = -3
-   NBLOCK = 1
+    SMASS = -3     #NVE
+   NBLOCK = 1       # XDATCAR contains positions of each step
 #NBLOCK controls how often the kinetic energy is scaled if SMASS=-1.
 
 Writing Flag
