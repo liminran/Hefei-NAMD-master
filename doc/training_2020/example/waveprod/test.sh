@@ -1,7 +1,21 @@
 #!/bin/bash
-qstat|
-grep  "[1-9]\+"|     #筛选出jobid，也可以根据特定的任务名筛选
-cut -d ' ' -f2|             #-d以空格为分隔符，-f 指定区域，，获取第二列jobid编号；
-xargs -I {} echo 'qstat -j {}'|   #将jobid一个一个的传给echo，其中 -I  {}参数，这个{}就是xargs要传递的名字
-sh|                  #执行
-sed -n '/cwd\|job_name/p'     #筛选出关注的信息，其中多条件匹配中间用  \|  分割两个匹配
+#cd run
+#ls -l {0001..2000}/WAVECAR | awk '{print $5}' | uniq -c
+qstat -f |awk "print $1 $2 $3 $4 $5 $0"
+qstat -f | awk  '{print "first:"$1"second:" $2 "third:" $3}' >data
+qstat -f |awk  '{print "filename:" FILENAME ",linenumber:" NR ",columns:" NF ",linecontent:"$0}'
+qstat -f | awk  '/@/{print "first:"$1" second:" $0 " third:" $3}'
+
+
+cat data | awk -F '/' 'BEGIN{count=0; printf("t2:%s,t3:%s\n",$2,$3)}{if($2 != $3){count=count+1;print NR}}'
+
+qstat -f | awk  '{print $3}' > data
+cat data | awk -F '/' 'BEGIN{count=0}{if($2 != $3){count=count+1;print NR " " $3}}' > dataNR
+qstat -f | awk -F '[/]' '/@/{print $3}'
+qstat -f | awk -F '[/\t'BIP']' 'BEGIN{COUNT=0}{if($3 != $4 && $6==’lx-amd64‘){print NR,$0,NF}}'
+
+qstat -f | awk  '/@/{print $0}' > data
+cat data | awk -F '[/\t'BIP']' 'BEGIN{COUNT=0}{if($3 != $4){count=count+1;print NR,$0,NF}}'
+cat data | awk -F '[/\t'BIP']' '{print $0}'
+
+

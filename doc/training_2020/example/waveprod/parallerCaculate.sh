@@ -26,4 +26,5 @@ do
     cd ../..
   fi
 done
+
 echo "this is $queue_name $number_of_cpus"
