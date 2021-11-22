@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#$ -cwd
+#$ -e .
+#$ -o .
+
+export PATH=/home/li/anaconda3/bin:/home/li/anaconda3/bin:/usr/local/programs/cuda/driver-440.100/usr/bin:/usr/local/programs/common/intel/compiler/2013.2.146/composer_xe_2013.2.146/bin/intel64:/usr/local/programs/sge/sge/bin:/usr/local/programs/sge/sge/bin/lx-amd64:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+export LD_LIBRARY_PATH=/usr/local/programs/common/intel/compiler/2013.2.146/composer_xe_2013.2.146/compiler/lib/intel64:/usr/local/programs/common/intel/compiler/2013.2.146/composer_xe_2013.2.146/mkl/lib/intel64:/usr/local/programs/cuda/driver-440.100/usr/lib:/usr/local/programs/common/intel/compiler/2013.2.146/composer_xe_2013.2.146/compiler/lib/intel64:/usr/local/programs/common/intel/compiler/2013.2.146/composer_xe_2013.2.146/mkl/lib/intel64
+
+export OMP_NUM_THREADS=1
+
+/bin/uname -a >a0001.log
+/bin/date >>a0001.log
+/bin/echo /usr/local/programs/common/openmpi/openmpi-1.6.5/arch/x86_64-intel_13.1.0.146-ofed_3.18_1/bin/mpirun /usr/local/programs/common/vasp/vasp-5.4.1/arch/x86_64-intel_13.1.0.146-openmpi_1.6.5-ofed_3.18_1/bin/vasp_std >>a0001.log
+/bin/echo >>a0001.log
+
+/usr/bin/time -a -o a0001.log /usr/local/programs/common/openmpi/openmpi-1.6.5/arch/x86_64-intel_13.1.0.146-ofed_3.18_1/bin/mpirun /usr/local/programs/common/vasp/vasp-5.4.1/arch/x86_64-intel_13.1.0.146-openmpi_1.6.5-ofed_3.18_1/bin/vasp_std >>a0001.log
+
+/bin/rm -rf a0001.dqs
+
