@@ -61,7 +61,7 @@ def init_wav_from_vaspwfc(wave0, gamma=True,icor=1,
     cic_0 = np.zeros([obasis] + list(ci_t.shape),dtype=np.complex)
     cio_0 = np.zeros([obasis] + list(ci_t.shape),dtype=np.complex)
     
-    print cic_0.shape
+    print (cic_0.shape)
     
     file_path = "cio.npy"    #Reference Wavefunction for phase correction
  
@@ -109,7 +109,7 @@ def nac_from_vaspwfc(waveA, waveB, gamma=True,icor=1,
     phi_i = vaspwfc(waveA)      # wavecar at t
     phi_j = vaspwfc(waveB)      # wavecar at t + dt
 
-    print 'Calculating NACs between <%s> and <%s>' % (waveA, waveB)
+    print ('Calculating NACs between <%s> and <%s>' % (waveA, waveB))
 
     assert phi_i._nbands == phi_j._nbands, '#bands not match!'
     assert phi_i._nplws[ikpt-1] == phi_j._nplws[ikpt-1], '#nplws not match!'
@@ -140,7 +140,7 @@ def nac_from_vaspwfc(waveA, waveB, gamma=True,icor=1,
            
     cio_t = np.zeros([obasis] + list(ci_t.shape),dtype=np.complex)
     cio_tdt = np.zeros([obasis] + list(ci_t.shape),dtype=np.complex)
-    print cic_t.shape
+    print (cic_t.shape)
     
     from time import time
     t1 = time()
@@ -245,7 +245,7 @@ def nac_from_vaspwfc(waveA, waveB, gamma=True,icor=1,
                 nacs[jj,ii] = -np.conj(nacs[ii,jj])
 
     t2 = time()
-    print '1. Elapsed Time: %.4f [s]' % (t2 - t1)
+    print ('1. Elapsed Time: %.4f [s]' % (t2 - t1))
   # EnT = (phi_i._bands[ispin-1,ikpt-1,:] + phi_j._bands[ispin-1,ikpt-1,:]) / 2.
     EnT = phi_i._bands[ispin-1,ikpt-1,bmin-1:bmax]
     

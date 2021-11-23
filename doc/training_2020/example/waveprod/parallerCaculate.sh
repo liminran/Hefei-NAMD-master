@@ -19,8 +19,8 @@ done
 for i in $(seq 1 1 ); do
     local n=$((5-$sum))
     echo "this is run number:"$n
-    a=$(cat datacpu | awk -F 'natur' '{print $1}' |sed -n ${n}p)  #sed 指定行
-    node=${a}natur.cuni.cz
+    a1=$(cat datacpu | awk -F 'natur' '{print $1}' |sed -n ${n}p)  #sed 指定行
+    node=${a1}natur.cuni.cz
     echo $node
     np=$(cat datacpu | awk -F '[/ ]+' '{print $5}' |sed -n ${n}p)
     echo $np
