@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8c81af5a-1066-4da0-997c-27f0ac4fb3b6" name="liroot">
+        <fileTransfer rootFolder="/home/li" accessType="SFTP" host="zeolite.natur.cuni.cz" port="22" sshConfigId="72bbd1d8-3295-445c-9db9-c213f6cc216a" sshConfig="li@zeolite.natur.cuni.cz:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

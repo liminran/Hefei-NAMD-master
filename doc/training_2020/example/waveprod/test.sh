@@ -42,8 +42,16 @@ done
 i=1
 cat datacpu | awk -F 'natur' '{print $1}' |sed -n ${i}p
 
+#查运行节点个数
+qstat | awk 'BEGIN{count=0}{if ($4=="li"){count= count+1} }END{print count}'
 
-VASP-5.4.1 zq@z05.natur.cuni.cz 24 2G
+
+
+
+VASP-5.4.1 zq-20-6.4@z53.natur.cuni.cz 20 2G
+
+n=$((RANDOM%9+1))
+echo $n
 
 #
 #VASP-5.4.1 zq-72-3.5@z40.natur.cuni.cz 72 3G
@@ -76,3 +84,18 @@ VASP-5.4.1 zq@z05.natur.cuni.cz 24 2G
 #
 #i=2
 #cat datacpu | awk -F '[/ ]+' '{print $5, NF}' |sed -n ${i}p
+
+
+#SYSTEM = Mo S
+#ISTART =0
+##ICHARG = 1
+#ISMEAR = 0
+#SIGMA = 0.1
+#NSW = 0
+#PREC = Accurate   # Precision large enough for accurte descripiton of the wavefunction
+#EDIFF = 1E-6       # well converged electronic structure
+#LWAVE = .TRUE.     # We need the WAVECARs
+##NBANDS = 648        # make sure we have the same number of bands.
+#                  # Also be large enough, since the last few bands are not very accurate.
+#LORBIT = 11         # we will need PROCAR to analyze the results
+#NELM = 120        # large enoQSTATuth so that the electronic structure can converge the require precision

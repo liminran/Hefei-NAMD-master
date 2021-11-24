@@ -4,3 +4,4 @@ for i in `ls`
 do
     mv  -f $i `echo a$i`
 done
+
