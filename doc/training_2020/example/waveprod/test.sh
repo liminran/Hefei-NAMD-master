@@ -47,11 +47,32 @@ qstat | awk 'BEGIN{count=0}{if ($4=="li"){count= count+1} }END{print count}'
 
 
 
-
+VASP-5.4.1 zq@z10 24 2G
 VASP-5.4.1 zq-20-6.4@z53.natur.cuni.cz 20 2G
 
 n=$((RANDOM%9+1))
 echo $n
+
+
+
+for i in {1..5} ; do
+
+    sum=$(date +%s%N|cut -c 13)
+    n=$(($sum+1))
+    echo "this is run node number1:"$n
+    node=5.natur.cuni.cz
+
+    while [ $node == '5.natur.cuni.cz' ]; do
+      echo "node before:"$node
+    sum=$(date +%s%N|cut -c 13)
+    n=$(($sum+1))
+    echo "this is run node number2:"$n
+    node=${n}.natur.cuni.cz
+#    i=$(($i+1))
+    echo 'node late:'$node
+    done
+    echo 'end:'$node
+done
 
 #
 #VASP-5.4.1 zq-72-3.5@z40.natur.cuni.cz 72 3G

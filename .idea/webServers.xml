@@ -9,6 +9,20 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="404ed8c3-f9db-4162-a68a-54fd37f240d5" name="skirit.ics.muni.cz (project level)">
+        <fileTransfer accessType="SFTP" host="skirit.ics.muni.cz" port="22" sshConfigId="ec6ea85d-af22-4e32-94ed-d388f7fa551e" sshConfig="minli@skirit.ics.muni.cz:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="d7c300a6-53a9-45ff-9d87-929551700824" name="mof.natur.cuni.cz">
+        <fileTransfer rootFolder="/home/li" accessType="SFTP" host="mof.natur.cuni.cz" port="22" sshConfigId="3b5cb8d5-e328-4241-93b8-efd49f7fb5de" sshConfig="li@mof.natur.cuni.cz:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

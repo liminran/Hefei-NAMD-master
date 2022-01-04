@@ -1,5 +1,4 @@
 #!/bin/bash
-sum=0
 vasp()
 {
   #查看空闲节点数
@@ -12,34 +11,46 @@ vasp()
     sed -n ${a}p data0 >datacpu0
     sed -n ${a}p data0 >>datacpu
   done
+
   #运行数据
   #run=1  #运行次数
   for i in $(seq 1 1); do
-
-    local n=$(($sum+1))
-#    n=2
-    sum=$n
+    sum=$(date +%s%N|cut -c 13)
+    n=$(($sum+1))
+    echo "this is run node number:"$n
+    a1=$(cat datacpu | awk -F 'natur' '{print $1}' | sed -n ${n}p) #sed 指定行
+    node=${a1}natur.cuni.cz
+    echo 'Before check node:'$node
+    while [ "$node" = "zq@z27.natur.cuni.cz" -o "$node" = "zq-20-6.4@z49.natur.cuni.cz" ]; do
+    sum=$(date +%s%N|cut -c 13)
+    n=$(($sum+1))
     echo "this is run node number:"$n
     a1=$(cat datacpu | awk -F 'natur' '{print $1}' | sed -n ${n}p) #sed 指定行
     node=${a1}natur.cuni.cz
     echo $node
+    echo "-------------------------------------------------------------------"
+    done
+
     np=$(cat datacpu | awk -F '[/ ]+' '{print $5}' | sed -n ${n}p)
     echo $np
     echo "VASP-5.4.1" $node $np 2G
-    #    VASP-5.4.1 $node $np 2G
+    VASP-5.4.1 $node $np 2G
     sleep 5
   done
   rm data0 data dataNR datacpu0 datacpu
 }
+vasp0(){
+VASP-5.4.1 zq 20 2G
+sleep 5
+}
 #允许提交数
-submit=10
+submit=13
 outcar='WAVECAR'
 b='.dqs'
 cd run/
 
 for i in `ls`
 do
-
   filename=$i
   delname=$filename$b
   echo 'This is delname:'$delname
@@ -64,14 +75,19 @@ do
     occnode=$(qstat | awk 'BEGIN{count=0}{if ($4=="li"){count= count+1} }END{print count}')
     if [ $occnode -ge $submit ]; then
       echo "The number of nodes is exceeded $occnode.please wait..."
-        sleep 600
-        sum=2
+      starttime=$(date +%Y-%m-%d\ %H:%M:%S)
+      echo $starttime
+        sleep 300
+#        sum=2
     else
       break
     fi
   done
   echo "Run new file, refresh node, select node"
-  vasp
+  vasp0
+  cd ../
+done
+
 #  if [ $occnode -ge 10 ]; then
 #    echo "Run new file, refresh node, select node"
 #    echo "before:"$sum
@@ -83,9 +99,7 @@ do
 #    echo 'Run over. exit!'
 #    break
 #  fi
-  cd ../
-done
-
+#sum=$(date +%s%N|cut -c 13)
 #  random=$((RANDOM%9+2))
 #outcar='OUTCAR'
 #b='.dqs'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="li@zeolite.natur.cuni.cz:22 password" remoteFilesAllowedToDisappearOnAutoupload="false" showEqualInSync="true" showExcludedInSync="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="liroot" remoteFilesAllowedToDisappearOnAutoupload="false" showEqualInSync="true" showExcludedInSync="true">
     <serverData>
       <paths name="he@zeolite.natur.cuni.cz:22 password">
         <serverdata>
@@ -16,10 +16,45 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="li_root">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="liroot">
         <serverdata>
           <mappings>
-            <mapping deploy="" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/data/scf" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mof">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mof.natur.cuni.cz">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="skirit.ics.muni.cz">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="skirit.ics.muni.cz (project level)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

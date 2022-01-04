@@ -48,9 +48,9 @@ def parallel_energy(runDirs, nproc=None):
 ############################################################
 # calculate spatial localization
 ############################################################
-nsw     = 7000
+nsw     = 2000
 nproc   = 8
-prefix  = 'NAMD/run/'
+prefix  = 'run/' #'NAMD/run/'
 runDirs = [prefix + '{:04d}'.format(ii + 1) for ii in range(nsw)]
 
 if os.path.isfile('all_en.npy'):
@@ -68,9 +68,9 @@ else:
 ############################################################
 
 ########################################
-bmin     = 152
-bmax     = 236
-namdTime = 6000
+bmin     = 325
+bmax     = 335
+namdTime = 1000
 potim    = 1.0
 inpFiles = glob('NAMD/SHPROP.*')
 ########################################
